@@ -47,27 +47,34 @@ but it contains multiple syntax errors that prevent it from being parsed.
 const invalidBookingJSON = `
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15",
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson",
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": null,
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"]
   }
 }
 `;
+
+/* 
+line 50 - Missing comma after "2024-05-15"
+line 54 - Missing double quotes around name
+line 60 - "age" value was changed to null from undefined
+line 67 - Removed extra comma after "Parking"
+*/
 
 
 // ============================================
@@ -91,11 +98,12 @@ const invalidBookingJSON = `
 💬 Reflect and answer the following:
 
 1️⃣ What tools or techniques did you use to identify the errors?
-
+I looked over it line by line
 2️⃣ How did you confirm that your corrected JSON file was valid?
-
+I used jsonlint to verify that the JSON was valid
 3️⃣ Which errors were the most difficult to spot? Why?
-
+trailing comma
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
-*/
+Because the JSON was in a template literal, combing it line by line was what I was left with
+   */
