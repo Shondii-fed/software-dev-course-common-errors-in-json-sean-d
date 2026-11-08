@@ -58,7 +58,7 @@ const invalidBookingJSON = `
     {
       "name": "Bob Smith",
       "age": null,
-      "email": "bob.smith@example"
+      "email": "bob.smith@example.com"
     }
   ],
   "roomDetails": {
@@ -73,6 +73,7 @@ const invalidBookingJSON = `
 line 50 - Missing comma after "2024-05-15"
 line 54 - Missing double quotes around name
 line 60 - "age" value was changed to null from undefined
+line 61 - Fixed the email structure (originally missed)
 line 67 - Removed extra comma after "Parking"
 */
 
